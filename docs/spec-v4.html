@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TerangaSats v4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+ :root {
+    --paper: #ffffff;
+    --ink: #1c2230;
+    --indigo: #263a8a;
+    --muted: #5d6475;
+    --rule: #d6d9e1;
+    --sats: #f1c232;
+    --thermal: #f7f7f4;
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --text: "Source Serif 4", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  @page {
+    size: A4;
+    margin: 18mm 20mm 20mm;
+    @bottom-left { content: "TerangaSats, dossier v4"; font: 8pt "Bricolage Grotesque", sans-serif; color: #5d6475; }
+    @bottom-right { content: counter(page) " / " counter(pages); font: 8pt "Bricolage Grotesque", sans-serif; color: #5d6475; }
+  }
+
+  * { box-sizing: border-box; }
+  html { background: #e8eaef; }
+  body {
+    margin: 0 auto;
+    max-width: 210mm;
+    padding: 18mm 20mm 20mm;
+    background: var(--paper);
+    color: var(--ink);
+    font: 10pt/1.5 var(--text);
+    font-optical-sizing: auto;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print {
+    html { background: none; }
+    body { padding: 0; max-width: none; }
+  }
+  @media (max-width: 640px) {
+    body { padding: 24px 16px; }
+    .opening, .split { grid-template-columns: 1fr !important; }
+    .receipt { margin: 0 auto; }
+  }
+
+  h1, h2, h3 { font-family: var(--display); color: var(--ink); margin: 0; }
+  p { margin: 0 0 0.7em; }
+  ul, ol { margin: 0 0 0.8em; padding-left: 1.1em; }
+  li { margin-bottom: 0.3em; }
+  strong { font-weight: 600; }
+  code { font-family: var(--mono); font-size: 0.86em; }
+
+  /* Title block */
+  .masthead { margin-bottom: 9mm; }
+  h1 {
+    font-size: 50pt;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    color: var(--indigo);
+  }
+  .promise {
+    font-family: var(--display);
+    font-size: 15pt;
+    line-height: 1.3;
+    font-weight: 400;
+    max-width: 150mm;
+    margin: 4mm 0 6mm;
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 1mm 6mm;
+    margin: 0;
+    font-size: 9.5pt;
+  }
+  .facts dt { font-family: var(--display); color: var(--muted); }
+  .facts dd { margin: 0; }
+
+  section { margin-bottom: 6mm; }
+  h2 {
+    font-size: 15pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5mm;
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 10.5pt;
+    font-weight: 600;
+    margin-bottom: 1mm;
+    break-after: avoid;
+  }
+
+  .opening {
+    display: grid;
+    grid-template-columns: 1fr 60mm;
+    gap: 10mm;
+    align-items: start;
+  }
+  .text { max-width: 122mm; }
+  .answer { max-width: 150mm; margin-top: 2mm; }
+
+  /* Two-step answer: a true sequence */
+  .phases { list-style: none; padding: 0; margin: 0; counter-reset: phase; }
+  .phases li {
+    counter-increment: phase;
+    display: grid;
+    grid-template-columns: 7mm 1fr;
+    margin-bottom: 3mm;
+  }
+  .phases li::before {
+    content: counter(phase);
+    font: 800 15pt/1.1 var(--display);
+    color: var(--indigo);
+  }
+
+  /* The receipt: the one bold element */
+  figure { margin: 0; }
+  .receipt {
+    width: 60mm;
+    background: var(--thermal);
+    padding: 6mm 5mm 7mm;
+    font: 8pt/1.5 var(--mono);
+    color: #222;
+    -webkit-mask: radial-gradient(circle 1.6mm at 50% 100%, transparent 98%, #000) 0 0 / 4mm 100% repeat-x;
+            mask: radial-gradient(circle 1.6mm at 50% 100%, transparent 98%, #000) 0 0 / 4mm 100% repeat-x;
+  }
+  .receipt .shop { text-align: center; font-weight: 600; font-size: 9pt; }
+  .receipt .center { text-align: center; }
+  .receipt hr { border: 0; border-top: 1px dashed #9a9a94; margin: 2.5mm 0; }
+  .receipt .row { display: flex; justify-content: space-between; gap: 2mm; }
+  .receipt .total { font-size: 11pt; font-weight: 600; }
+  .receipt .paid {
+    display: block;
+    text-align: center;
+    background: var(--sats);
+    font-weight: 600;
+    padding: 1mm 0;
+    margin: 2.5mm 0;
+  }
+  .receipt .proof { word-break: break-all; color: #555; }
+  figcaption {
+    width: 60mm;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    color: var(--muted);
+    margin-top: 2.5mm;
+  }
+
+  /* Sale flow: a true sequence */
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; }
+  .steps li {
+    counter-increment: step;
+    display: grid;
+    grid-template-columns: 9mm 1fr;
+    padding: 2.5mm 0;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+  .steps li:last-child { border-bottom: 1px solid var(--rule); }
+  .steps li::before {
+    content: counter(step);
+    font: 800 13pt/1.2 var(--display);
+    color: var(--indigo);
+  }
+  .steps h3 { margin: 0 0 0.5mm; }
+  .steps p { margin: 0; }
+
+  .diagram { margin: 2mm 0 2mm; }
+  .diagram svg { width: 100%; height: auto; display: block; }
+  .diagram text { font-family: var(--display); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    break-inside: avoid;
+  }
+  th {
+    font: 600 8.5pt var(--display);
+    color: var(--muted);
+    text-align: left;
+    padding: 0 3mm 1.5mm 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  td {
+    padding: 2mm 3mm 2mm 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  td:first-child { width: 36%; font-weight: 600; }
+
+  .verdicts td:first-child { width: 30%; }
+  .verdict { font-family: var(--display); font-weight: 600; }
+
+  .qa { margin: 0; }
+  .qa dt { font: 600 10.5pt/1.35 var(--display); margin-top: 3mm; break-after: avoid; }
+  .qa dd { margin: 0.8mm 0 0; }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9mm;
+  }
+
+  .plan { list-style: none; padding: 0; margin: 0; }
+  .plan li {
+    display: grid;
+    grid-template-columns: 23mm 1fr;
+    gap: 2mm;
+    padding: 1.6mm 0;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+  .plan time { font-family: var(--display); font-weight: 600; color: var(--indigo); }
+
+  sup { line-height: 0; }
+  sup a { font: 600 7pt var(--display); color: var(--indigo); text-decoration: none; }
+  .sources { font-size: 8.5pt; line-height: 1.45; color: var(--muted); padding-left: 5mm; margin: 0; }
+  .sources li { margin-bottom: 1.2mm; }
+  .sources a { color: var(--ink); overflow-wrap: anywhere; }
+
+  .run {
+    font: 9pt/1.5 var(--mono);
+    background: var(--thermal);
+    padding: 3mm 4mm;
+    margin: 1.5mm 0 2mm;
+  }
+  .compare td:first-child { width: 22%; }
+  .compare td { font-size: 9pt; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <h1>TerangaSats</h1>
+  <p class="promise">Protège les vendeurs qui livrent contre les faux paiements&nbsp;: un vérificateur de SMS pour aujourd’hui, un paiement Lightning impossible à falsifier pour demain.</p>
+  <dl class="facts">
+    <dt>Hackathon</dt><dd>Dakar Bitcoin Hack #4 par BTrust, en ligne</dd>
+    <dt>Porteurs</dt><dd>Mouhamadou Moustapha Bah, Mohamed Camara</dd>
+    <dt>Briques</dt><dd>Wallet Lightning intégré (Breez SDK), Nostr, IA ouverte (Llama 3.3 70B via Cloudflare Workers AI)</dd>
+    <dt>Dépôt</dt><dd>Devpost, 20 novembre 2026</dd>
+  </dl>
+</header>
+
+<div class="opening">
+  <div class="text">
+    <section>
+      <h2>Le problème</h2>
+      <p>Les vendeurs sénégalais qui livrent à domicile, sur TikTok, WhatsApp ou Instagram, se font payer à la porte du client. Celui qui remet la marchandise, le livreur, n’est pas celui qui voit l’argent arriver, le vendeur. Les escrocs exploitent cette séparation.</p>
+      <ul>
+        <li><strong>Le faux transfert.</strong> En novembre 2024, des vendeurs du marché Sandaga ont livré jusqu’à 250&nbsp;000 FCFA de chaussures contre de faux SMS Orange Money, copiés d’un vrai message au montant modifié. Le meneur a été condamné à trois mois ferme.<sup><a href="#s1">1</a></sup></li>
+        <li><strong>Le «&nbsp;dépôt par erreur&nbsp;».</strong> Un faux SMS de dépôt, puis un appel pour se faire «&nbsp;rembourser&nbsp;» ou faire composer un «&nbsp;code d’annulation&nbsp;», qui est en réalité un code de retrait.<sup><a href="#s2">2</a></sup></li>
+      </ul>
+      <p>Le conseil de tous les guides, «&nbsp;vérifiez votre solde&nbsp;», ne sert à rien au livreur&nbsp;: le solde est sur le téléphone du vendeur.<sup><a href="#s3">3</a></sup></p>
+    </section>
+  </div>
+
+  <figure>
+    <div class="receipt" role="img" aria-label="Exemple de reçu TerangaSats pour la commande 42, livraison de 16 500 FCFA soit 27 949 sats, payée en Lightning, preuve vérifiée sur le téléphone du livreur">
+      <div class="shop">Ndiaye Chaussures</div>
+      <div class="center">Commande n° 42</div>
+      <div class="center">Livraison à Grand-Yoff</div>
+      <div class="center">08/11/2026 18:42</div>
+      <hr>
+      <div class="row"><span>Mocassins, 42</span><span>15&nbsp;000 F</span></div>
+      <div class="row"><span>Livraison</span><span>1&nbsp;500 F</span></div>
+      <hr>
+      <div class="row total"><span>Total</span><span>16&nbsp;500 F</span></div>
+      <div class="row"><span>Soit</span><span>27&nbsp;949 sats</span></div>
+      <span class="paid">Payé en Lightning</span>
+      <div>Preuve de paiement</div>
+      <div class="proof">9c1e 44af 07d2 b8e3 … e71a</div>
+      <div>Vérifiée chez le livreur</div>
+      <hr>
+      <div>Signé par le vendeur</div>
+      <div class="proof">npub1q8x…4vte</div>
+      <div class="center" style="margin-top:2mm">Jërëjëf&nbsp;!</div>
+    </div>
+    <figcaption>Reçu d’exemple, taux fictif de 90&nbsp;000 € le bitcoin.</figcaption>
+  </figure>
+</div>
+
+<section class="text answer">
+  <h2>Deux protections contre un seul problème</h2>
+  <ol class="phases">
+    <li><div><strong>Dès aujourd’hui&nbsp;: le vérificateur de paiements.</strong> Le vendeur ou le livreur colle le SMS reçu ou photographie l’écran du client. TerangaSats repère le faux transfert et le dépôt par erreur, explique pourquoi, lit le verdict à voix haute en wolof, et rappelle de ne rien remettre sans confirmation. Il marche avec Wave et Orange Money, sans que personne ne change ses habitudes.</div></li>
+    <li><div><strong>Ensuite&nbsp;: le lien de livraison Lightning.</strong> Le vendeur envoie au livreur un lien qui contient la facture de la commande. Quand le client paie, le téléphone du livreur reçoit une confirmation signée par le vendeur et accompagnée de la preuve cryptographique du paiement. Il n’y a plus rien à falsifier, et le livreur ne détient aucun accès au wallet.</div></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Le parcours d’une livraison</h2>
+  <ol class="steps">
+    <li><div>
+      <h3>Le vendeur crée la commande en FCFA</h3>
+      <p>La caisse convertit le montant en sats avec le prix BTC/EUR et la parité fixe 1 € = 655,957 FCFA, puis le wallet intégré crée une facture Lightning valable 24 heures, à partir d’un secret de paiement généré sur le téléphone du vendeur. Le prix est figé au moment de la commande.</p>
+    </div></li>
+    <li><div>
+      <h3>Il envoie le lien de livraison</h3>
+      <p>Au livreur, et s’il le souhaite au client par WhatsApp pour un paiement d’avance. Le lien contient la facture et la clé publique du vendeur. Rien d’autre&nbsp;: aucun mot de passe, aucun accès au wallet.</p>
+    </div></li>
+    <li><div>
+      <h3>À la porte, le client scanne et paie</h3>
+      <p>Les sats arrivent dans le wallet du vendeur. Sa caisse publie aussitôt sur Nostr une confirmation signée avec sa clé, qui contient la preuve de paiement Lightning&nbsp;: le secret de la facture, que seul un paiement rend valable.</p>
+    </div></li>
+    <li><div>
+      <h3>Le téléphone du livreur vérifie deux fois</h3>
+      <p>La signature doit venir du vendeur, et la preuve doit correspondre exactement à la facture de la commande. C’est seulement alors qu’il affiche «&nbsp;Payé&nbsp;». Un faux écran ou un faux SMS ne passe aucun des deux contrôles.</p>
+    </div></li>
+    <li><div>
+      <h3>Le client reçoit un reçu signé</h3>
+      <p>Montant en FCFA et en sats, preuve de paiement, signature du vendeur. En boutique, le parcours est le même sur l’écran du vendeur.</p>
+    </div></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Architecture&nbsp;: personne d’autre que le vendeur ne touche à l’argent</h2>
+  <figure class="diagram">
+    <svg viewBox="0 0 680 312" role="img" aria-label="Schéma : le téléphone du vendeur contient la caisse et le wallet Lightning intégré. Il envoie au livreur un lien de livraison contenant la facture. Le client paie via le réseau Lightning, les sats arrivent dans le wallet du vendeur, qui publie une confirmation signée sur un relais Nostr. Le téléphone du livreur la reçoit et la vérifie. Le serveur TerangaSats ne sert que la page et le vérificateur IA, sans fonds ni clés.">
+      <defs>
+        <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 L10 5 L0 10 z" fill="#1c2230"/>
+        </marker>
+      </defs>
+      <g fill="#fff" stroke="#1c2230" stroke-width="1.2">
+        <rect x="16" y="24" width="210" height="76" rx="3"/>
+        <rect x="400" y="24" width="270" height="76" rx="3"/>
+        <rect x="226" y="164" width="150" height="56" rx="3"/>
+        <rect x="430" y="164" width="150" height="56" rx="3"/>
+        <rect x="430" y="250" width="150" height="50" rx="3"/>
+      </g>
+      <rect x="16" y="164" width="180" height="56" rx="3" fill="#fff" stroke="#263a8a" stroke-width="1.2" stroke-dasharray="5 4"/>
+
+      <g font-size="13" font-weight="600" fill="#1c2230">
+        <text x="28" y="48">Téléphone du livreur</text>
+        <text x="412" y="48">Téléphone du vendeur</text>
+        <text x="238" y="188">Relais Nostr</text>
+        <text x="442" y="188">Réseau Lightning</text>
+        <text x="442" y="272">Wallet du client</text>
+      </g>
+      <text x="28" y="188" font-size="13" font-weight="600" fill="#263a8a">Serveur TerangaSats</text>
+      <g font-size="10.5" fill="#5d6475">
+        <text x="28" y="66">facture + clé publique du vendeur</text>
+        <text x="28" y="82">aucun accès au wallet</text>
+        <text x="412" y="66">caisse + wallet Lightning intégré</text>
+        <text x="412" y="82">clés sur l’appareil, protégées par passkey</text>
+        <text x="238" y="206">confirmations signées</text>
+        <text x="442" y="206">les sats vont au vendeur</text>
+        <text x="442" y="288">n’importe quel wallet</text>
+      </g>
+      <g font-size="10.5" fill="#263a8a">
+        <text x="28" y="206">page web + vérificateur IA</text>
+        <text x="16" y="238">aucun fonds, aucune clé</text>
+      </g>
+
+      <g stroke="#1c2230" stroke-width="1.2" fill="none">
+        <line x1="398" y1="44" x2="228" y2="44" marker-end="url(#a)"/>
+        <path d="M430 100 V132 H340 V162" marker-end="url(#a)"/>
+        <path d="M262 162 V132 H170 V102" marker-end="url(#a)"/>
+        <line x1="505" y1="162" x2="505" y2="102" marker-end="url(#a)"/>
+        <line x1="505" y1="248" x2="505" y2="222" marker-end="url(#a)"/>
+        <line x1="60" y1="100" x2="60" y2="162" marker-end="url(#a)"/>
+      </g>
+      <g font-size="10" fill="#5d6475">
+        <text x="252" y="38">lien de livraison (facture)</text>
+        <text x="346" y="154">confirmation + preuve</text>
+        <text x="66" y="136">texte masqué</text>
+        <text x="512" y="140">sats</text>
+        <text x="512" y="240">paie</text>
+      </g>
+    </svg>
+  </figure>
+  <p class="text">Le wallet vit sur le téléphone du vendeur, grâce au Breez SDK&nbsp;: pas de nœud à installer, pas de canaux à gérer, et la réception fonctionne même téléphone éteint.<sup><a href="#s5">5</a></sup> Chaque facture est créée avec un secret généré par la caisse&nbsp;: le vendeur détient toujours la preuve de paiement, ce que nous avons vérifié dans le SDK. Le livreur ne reçoit qu’une facture et une clé publique. Le serveur TerangaSats ne sert que la page web et le vérificateur.</p>
+</section>
+
+<section>
+  <h2>Sécurité dès la conception</h2>
+  <table>
+    <thead><tr><th>Menace</th><th>Ce que fait TerangaSats</th></tr></thead>
+    <tbody>
+      <tr><td>Faux écran ou faux SMS du client</td><td>Le livreur n’accepte qu’une confirmation signée par le vendeur et contenant la preuve qui correspond à la facture.</td></tr>
+      <tr><td>Fausse confirmation fabriquée</td><td>Impossible sans la clé du vendeur. Et même avec, la preuve de paiement ne s’obtient qu’en payant.</td></tr>
+      <tr><td>Livreur malhonnête ou téléphone du livreur volé</td><td>Il ne détient aucun accès au wallet, même en lecture. Il ne peut rien dépenser ni rien consulter d’autre que ses commandes.</td></tr>
+      <tr><td>Vol du téléphone du vendeur</td><td>Le wallet est protégé par passkey, donc par l’empreinte ou le code du téléphone, et la phrase de récupération n’est jamais stockée. Si l’appareil ne propose pas de passkey, un code chiffre le wallet dans le navigateur : un voleur peut le tester hors ligne, d’où une limite assumée. Le wallet de caisse ne garde pas d’économies.</td></tr>
+      <tr><td>Piratage de nos serveurs</td><td>Aucun fonds ni clé chez nous. Le pire cas est un vérificateur indisponible, pas un vol.</td></tr>
+      <tr><td>Fuite des SMS analysés</td><td>Numéros, noms et soldes sont masqués sur le téléphone avant l’envoi. Seul ce texte masqué part vers le modèle (Cloudflare Workers AI), et seulement quand les règles ne tranchent pas. Rien n’est stocké ni journalisé chez nous.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Le vérificateur de paiements</h2>
+  <p class="text">Il travaille en deux couches. D’abord des règles simples, sur le téléphone&nbsp;: un SMS de paiement venu d’un numéro ordinaire plutôt que de l’expéditeur officiel est déjà un signal fort, sans IA. Ensuite un modèle de langage ouvert, Llama 3.3 70B, appelé via Cloudflare Workers AI, là où les règles ne suffisent pas.<sup><a href="#s9">9</a></sup> Il peut signaler une arnaque, jamais rassurer&nbsp;: un faux SMS de transfert est la copie d’un vrai reçu, aucun modèle ne peut les distinguer par le texte. Sa réponse est donc «&nbsp;Signes d’arnaque&nbsp;» ou «&nbsp;À vérifier&nbsp;», jamais «&nbsp;Aucun signe détecté&nbsp;». Les raisons affichées sont des phrases écrites par l’équipe&nbsp;: celle de la règle qui a tranché, ou une phrase fixe selon le verdict du modèle. Le verdict est aussi lu à voix haute en wolof. Le texte est masqué avant tout envoi.</p>
+  <table class="verdicts">
+    <thead><tr><th>Verdict</th><th>Ce que l’application conseille</th></tr></thead>
+    <tbody>
+      <tr><td class="verdict">Signes d’arnaque</td><td>Ne remettez pas la marchandise. Les indices trouvés sont listés.</td></tr>
+      <tr><td class="verdict">À vérifier</td><td>Quelque chose ne correspond pas. Appelez le vendeur avant de remettre quoi que ce soit.</td></tr>
+      <tr><td class="verdict">Aucun signe détecté</td><td>Faites quand même confirmer par le vendeur. Seul son solde fait foi.</td></tr>
+    </tbody>
+  </table>
+  <p class="text" style="margin-top:3mm">L’application ne dit jamais «&nbsp;authentique&nbsp;». Nous constituons un jeu de test d’au moins 60 messages couvrant les deux arnaques, à partir des cas publiés par la presse et de messages reconstitués, signalés comme tels. Le README publiera le taux d’arnaques détectées et le taux de fausses alertes.</p>
+</section>
+
+<section>
+  <h2>Ce qui existe déjà, et ce que nous ajoutons</h2>
+  <table class="compare">
+    <thead><tr><th>Solution</th><th>Ce qu’elle fait</th><th>Ce qui manque pour notre cas</th></tr></thead>
+    <tbody>
+      <tr><td>BuzzPay, d’Alby</td><td>Caisse Lightning open source en réception seule via Nostr Wallet Connect, partageable aux employés par lien.<sup><a href="#s4">4</a></sup></td><td>Le lien partagé contient un accès au wallet, à protéger comme un mot de passe. Rien contre les faux SMS, pas de wolof.</td></tr>
+      <tr><td>RAK TAK CASH, 1<sup>er</sup> à Code &amp; Chain Dakar, octobre 2026</td><td>Paiements Lightning pour commerçants et sécurisation des transactions entre acheteurs et vendeurs, selon la presse.<sup><a href="#s6">6</a></sup></td><td>Nous n’avons pas trouvé de description détaillée. Rien d’annoncé sur les faux SMS ni sur la livraison.</td></tr>
+      <tr><td>Wave Business</td><td>QR code, liens de paiement à distance, notifications. Gratuit jusqu’à 20&nbsp;000 F par jour, puis 1 %.<sup><a href="#s7">7</a></sup></td><td>Pensé pour encaisser, pas pour démasquer les faux messages qu’un client présente.</td></tr>
+    </tbody>
+  </table>
+  <p class="text" style="margin-top:3mm">Nous reprenons l’idée de BuzzPay, une caisse qui ne peut pas dépenser, et la poussons plus loin&nbsp;: le livreur ne détient même plus d’accès en réception. Nous y ajoutons ce qu’aucune de ces solutions ne propose, la protection contre les faux paiements.</p>
+</section>
+
+<section>
+  <h2>Les questions qu’on nous posera</h2>
+  <dl class="qa">
+    <dt>Pourquoi ne pas simplement vérifier son solde&nbsp;?</dt>
+    <dd>C’est le bon réflexe, et le vérificateur le rappelle à chaque verdict. Mais à la livraison, le livreur n’a pas accès au solde du vendeur&nbsp;: c’est exactement la faille exploitée à Sandaga.<sup><a href="#s1">1</a></sup> Le lien de livraison lui apporte la confirmation sur son propre téléphone.</dd>
+    <dt>Qui paie en Lightning aujourd’hui&nbsp;?</dt>
+    <dd>Peu de monde, et nous ne le cachons pas&nbsp;: la communauté Bitcoin de Dakar, des étudiants, des familles qui reçoivent des sats de la diaspora. C’est pourquoi le vérificateur passe en premier&nbsp;: il sert dès le premier jour avec Wave et Orange Money, et fait venir les vendeurs avant que leurs clients ne paient en sats.</dd>
+    <dt>Et les frais&nbsp;?</dt>
+    <dd>Wave est gratuit pour le marchand jusqu’à 20&nbsp;000 F par jour, puis prend 1 %.<sup><a href="#s7">7</a></sup> Lightning coûte quelques sats. Nous ne vendons pas TerangaSats sur les frais, mais sur la sécurité.</dd>
+    <dt>Et si le bitcoin baisse&nbsp;?</dt>
+    <dd>Chaque vente est enregistrée en FCFA au moment du paiement, et l’historique montre aussi sa valeur actuelle. La conversion en FCFA passera par un acteur local spécialisé, comme Banxaas, après le hackathon.</dd>
+    <dt>Est-ce légal&nbsp;?</dt>
+    <dd>Le bitcoin n’est ni interdit ni encadré dans l’UEMOA, et la BCEAO appelle à la prudence.<sup><a href="#s8">8</a></sup> Selon notre lecture, TerangaSats ne garde aucun fonds et ne convertit rien&nbsp;: il ne joue pas le rôle d’un prestataire de services sur actifs virtuels. La conversion restera chez un acteur soumis à la loi anti-blanchiment de 2024. Ce point sera confirmé avec un juriste avant tout lancement.</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>La démo</h2>
+  <p class="text">La vidéo de trois minutes rejoue l’affaire de Sandaga en trois scènes&nbsp;: un faux SMS Orange Money arrêté par le vérificateur, puis une livraison payée par le lien Lightning avec la confirmation qui s’affiche chez le livreur, enfin un faux écran de paiement refusé.</p>
+  <div class="run">docker compose up</div>
+  <p class="text">Démarre la caisse et le vérificateur avec un mode démonstration&nbsp;: commandes d’exemple et paiements simulés, pour tester tout le parcours sans argent. Le parcours réel est montré dans la vidéo avec quelques centaines de sats.</p>
+</section>
+
+<div class="split">
+  <section>
+    <h2>Ce que nous mesurons</h2>
+    <ul>
+      <li>Temps entre le paiement et l’affichage «&nbsp;Payé&nbsp;» chez le livreur, objectif sous 10 secondes.</li>
+      <li>Poids de l’application au premier chargement, objectif sous 300 Ko hors module du wallet, pour la 3G.</li>
+      <li>Taux de détection et de fausses alertes du vérificateur sur le jeu de test, avec les règles seules puis avec l’IA, pour mesurer ce qu’apporte l’IA.</li>
+    </ul>
+    <h3 style="margin-top:4mm">Limites assumées</h3>
+    <ul>
+      <li>Le téléphone du vendeur doit être en ligne pour que la confirmation parte vers le livreur.</li>
+      <li>Le module du wallet pèse environ 5 Mo compressé&nbsp;: le vendeur le télécharge une fois, de préférence en wifi. La page du livreur ne le charge jamais et reste légère.</li>
+      <li>Les paiements Wave et Orange Money ne sont pas garantis&nbsp;: le vérificateur aide, il ne prouve pas.</li>
+      <li>Pas encore testé avec des vendeurs réels. Un pilote est la première étape après le hackathon.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Calendrier</h2>
+    <ol class="plan">
+      <li><time>8 au 10 nov.</time><span>Wallet Breez intégré&nbsp;: création, passkey, réception, conversion FCFA.</span></li>
+      <li><time>11 au 13 nov.</time><span>Lien de livraison, confirmation signée Nostr, double vérification chez le livreur.</span></li>
+      <li><time>14 au 16 nov.</time><span>Vérificateur&nbsp;: règles, IA, jeu de test, audio en wolof.</span></li>
+      <li><time>17 au 18 nov.</time><span>Mode démonstration, installation en une commande, mesures.</span></li>
+      <li><time>19 au 20 nov.</time><span>Vidéo, README avec architecture et menaces, dépôt Devpost.</span></li>
+    </ol>
+    <h3 style="margin-top:4mm">Après le hackathon</h3>
+    <p>Pilote avec des vendeurs qui livrent, sortie vers le FCFA avec un partenaire local, saisie à la voix en wolof.</p>
+  </section>
+</div>
+
+<section>
+  <h2>Sources</h2>
+  <ol class="sources">
+    <li id="s1">Faux transferts Orange Money au marché Sandaga, novembre 2024. Dakaractu, 14 novembre 2024&nbsp;: <a href="https://www.dakaractu.com/Un-trio-d-escrocs-demantele-des-commercants-arnaques-avec-de-faux-transferts-d-argent_a255725.html">dakaractu.com</a>. Pulse Sénégal, 21 novembre 2024&nbsp;: <a href="https://www.pulse.sn/article/transfert-electronique-des-jeunes-depouillent-des-commercants-a-sandaga-2024112108462901031">pulse.sn</a>. Jugement rapporté par Leral, 29 novembre 2024&nbsp;: <a href="https://www.leral.net/Il-avait-escroque-en-ligne-un-marchand-de-chaussures-Abdou-Cisse-ecope-d-une-peine-de-trois-mois-d-emprisonnement-ferme_a374019.html">leral.net</a>.</li>
+    <li id="s2">Arnaque au «&nbsp;code d’annulation&nbsp;». Jangaan Tech, 19 août 2025&nbsp;: <a href="https://jangaantech.com/fr/arnaques-orange-money-wave-senegal">jangaantech.com</a>. Senenews, 5 octobre 2026&nbsp;: <a href="https://www.senenews.com/actualites/retraits-frauduleux-des-comptes-wave-vides-par-des-inconnus-que-se-passe-t-il-vraiment_601871.html">senenews.com</a>.</li>
+    <li id="s3">Senlocal, «&nbsp;Arnaques au mobile money au Sénégal&nbsp;», 20 septembre 2026&nbsp;: <a href="https://senlocal.com/blog/arnaques-au-mobile-money-au-senegal-les-reconnaitre-et-s-en-proteger">senlocal.com</a>. Tappo, guide de sécurité&nbsp;: <a href="https://tappo-sn.com/securite.html">tappo-sn.com</a>.</li>
+    <li id="s4">BuzzPay, caisse open source d’Alby&nbsp;: <a href="https://github.com/getAlby/pos">github.com/getAlby/pos</a>. Analyse de son modèle de sécurité&nbsp;: <a href="https://www.crays.org/nostr/commerce/buzzpay/">crays.org</a>.</li>
+    <li id="s5">Breez SDK, wallet Lightning sans nœud, compatible WebAssembly&nbsp;: <a href="https://github.com/breez/spark-sdk">github.com/breez/spark-sdk</a>.</li>
+    <li id="s6">Code &amp; Chain Dakar 2026, Technext, 4 novembre 2026&nbsp;: <a href="https://technext24.com/sponsored/bitnob-hackathon-draws-98-developers-in-dakar/">technext24.com</a>.</li>
+    <li id="s7">Wave Business, tarifs&nbsp;: <a href="https://www.wave.com/en/business/">wave.com/en/business</a>.</li>
+    <li id="s8">BCEAO, position sur les cryptoactifs, Agence Ecofin, juillet 2026&nbsp;: <a href="https://www.agenceecofin.com/actualites-finance/2407-140478-uemoa-la-reglementation-des-cryptoactifs-reste-en-preparation-la-bceao-appelle-a-la-prudence">agenceecofin.com</a>.</li>
+      <li id="s9">Llama 3.3 70B (Meta, licence Llama 3.3), exécuté par Cloudflare Workers AI&nbsp;: <a href="https://developers.cloudflare.com/workers-ai/">developers.cloudflare.com/workers-ai</a>. Laya (Convai Innovations), testé d’abord, a été écarté&nbsp;: voir <code>docs/choix-ia.md</code>.</li>
+</ol>
+</section>
+
+</body>
+</html>

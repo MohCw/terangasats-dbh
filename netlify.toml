@@ -1,0 +1,12 @@
+# App + verifier on Netlify (free plan). The verifier is netlify/functions/verify.ts, served at /api/verify on the same origin.
+# Set in Netlify (Site configuration > Environment variables): VITE_BREEZ_API_KEY, CF_ACCOUNT_ID, CF_API_TOKEN.
+[build]
+  command = "cd app && npm ci && npm run build"
+  publish = "app/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  VITE_VERIFIER_URL = "" # empty: the app calls /api/verify on its own origin
+
+[functions]
+  directory = "netlify/functions"

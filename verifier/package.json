@@ -1,0 +1,19 @@
+{
+  "name": "terangasats-verifier",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "start": "tsx server/index.ts",
+    "eval": "tsx eval/run-eval.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "jsdom": "^31.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^3.2.7"
+  },
+  "dependencies": {
+    "tsx": "^4.23.15"
+  }
+}

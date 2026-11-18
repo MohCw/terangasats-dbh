@@ -1,0 +1,3 @@
+// Facture « cup of coffee » de la spécification BOLT #11 : 250 000 sats, horodatage 1496314658, expiration 60 s
+export const COFFEE = "lnbc2500u1pvjluezsp5zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zyg3zygspp5qqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqqqsyqcyq5rqwzqfqypqdq5xysxxatsyp3k7enxv4jsxqzpu9qrsgquk0rl77nj30yxdy8j9vdx85fkpmdla2087ne0xh8nhedh8w27kyke0lp53ut353s06fv3qfegext0eh0ymjpf39tuven09sam30g4vgpfna3rh";
+export const COFFEE_HASH = "0001020304050607080900010203040506070809000102030405060708090102";

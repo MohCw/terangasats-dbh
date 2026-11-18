@@ -1,0 +1,63 @@
+{"id": "R01", "text": "Vous avez recu un transfert de 30000.00FCFA de [NUMERO] [NOM]. Ref:PP261114.0930.C10427 .Votre solde[SOLDE].Merci.OFMS", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reel_masque"}
+{"id": "R02", "text": "Votre transfert de 30000.00Fcfa vers [NUMERO] [NOM] a reussi. Frais d'envoi:0.00Fcfa. Solde: [SOLDE].Ref:PP261114.0930.C10427 . Merci.OFMS", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reel_masque"}
+{"id": "R03", "text": "Vous avez recu 2.000F\nDe [NOM] ([NUMERO])\n11/11/2026 à 19h33\nNouveau solde: [SOLDE] \n+infos: 200600\nAvec WDF\nQWERTZUIOPASDFGHJ", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reel_masque"}
+{"id": "L01", "text": "Vous avez recu un transfert de 5000.00 FCFA du [NUMERO]. Votre nouveau solde est de [SOLDE]. Ref: CI241101.1023.A12345", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L02", "text": "Transfert de 12500 FCFA recu de [NUMERO] le 02/11/2026 a 09:14. Nouveau solde: [SOLDE]. ID: CI241102.0914.C40112", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L03", "text": "Depot de 20000 FCFA effectue sur votre compte. Ref: PP241103.1201.C55102. Solde: [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L04", "text": "Vous avez recu 7500 FCFA de [NOM]. Ref: CI241104.1755.D21007. Votre solde est [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L05", "text": "Paiement marchand recu: 16500 FCFA. Client [NUMERO]. Ref: MP241105.1842.E90031. Solde [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L06", "text": "Retrait de 10000 FCFA effectue chez votre agent. Frais 100 FCFA. Ref: CO241106.1105.F11210. Solde: [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L07", "text": "Achat de credit de 1000 FCFA effectue. Ref: RC241106.0812.G00451. Nouveau solde: [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L08", "text": "Vous avez recu un transfert de 30000.00 FCFA du [NUMERO]. Votre nouveau solde est de [SOLDE]. Ref: CI241107.1530.H33120", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L09", "text": "Transfert recu: 2000 FCFA de [NOM] ([NUMERO]). Ref: CI241108.0701.J00982. Solde: [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L10", "text": "Depot de 50000 FCFA recu via agent. Ref: PP241108.1645.K72001. Solde: [SOLDE]", "sender": "OrangeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L11", "text": "Vous avez reçu 15000F de [NOM]. Nouveau solde: [SOLDE]. Merci d'utiliser Wave.", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L12", "text": "Vous avez reçu 2500F de [NUMERO]. Solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L13", "text": "Paiement reçu: 16500F de [NOM]. Frais: 0F. Nouveau solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L14", "text": "Vous avez reçu 40000F de [NOM]. Solde: [SOLDE]. Wave, l'argent sans frais.", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L15", "text": "Dépôt de 10000F reçu. Nouveau solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L16", "text": "Vous avez envoyé 5000F à [NUMERO]. Frais: 50F. Nouveau solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L17", "text": "Vous avez reçu 3000F de [NOM] pour la commande 42. Solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L18", "text": "Paiement de 8000F reçu de [NUMERO]. Solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L19", "text": "Retrait de 20000F effectué. Frais: 200F. Nouveau solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L20", "text": "Vous avez reçu 125000F de [NOM]. Nouveau solde: [SOLDE].", "sender": "Wave", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L21", "text": "Free Money: vous avez recu 6000 FCFA du [NUMERO]. Ref FM241101.88213. Solde: [SOLDE]", "sender": "FreeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L22", "text": "Free Money: transfert de 15000 FCFA recu. Ref FM241103.40021. Solde: [SOLDE]", "sender": "FreeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L23", "text": "Free Money: depot de 25000 FCFA effectue. Ref FM241105.10093. Solde: [SOLDE]", "sender": "FreeMoney", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L24", "text": "Vous avez recu un transfert de 9000.00 FCFA du [NUMERO]. Votre nouveau solde est de [SOLDE]. Ref: CI241109.1120.L41003", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L25", "text": "Vous avez reçu 4500F de [NOM]. Nouveau solde: [SOLDE].", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L26", "text": "Transfert de 18000 FCFA recu de [NUMERO]. ID: CI241109.1402.M11234. Nouveau solde: [SOLDE]", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L27", "text": "Paiement reçu: 12000F de [NUMERO]. Frais: 0F. Nouveau solde: [SOLDE].", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L28", "text": "Depot de 15000 FCFA effectue sur votre compte. Ref: PP241110.0930.N22013. Solde: [SOLDE]", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L29", "text": "Vous avez reçu 60000F de [NOM]. Solde: [SOLDE].", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "L30", "text": "Free Money: vous avez recu 3500 FCFA. Ref FM241110.55120. Solde: [SOLDE]", "sender": "", "label": "legitime", "type": "legitime", "origin": "reconstitue"}
+{"id": "F01", "text": "Vous avez recu un transfert de 135000.00 FCFA du [NUMERO]. Votre nouveau solde est de [SOLDE]. Ref: CI241101.1023.A12345", "sender": "[NUMERO]", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F02", "text": "Transfert reçu 250000F. Livrez la commande svp, le client attend.", "sender": "[NUMERO]", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F03", "text": "Wave: vous avez reçu 85000F de [NOM]. Solde: [SOLDE].", "sender": "[NUMERO]", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F04", "text": "Vous avez recu 150000F. Votre solde est [SOLDE]. Remettez la marchandise au client maintenant", "sender": "OrangeMoney", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F05", "text": "Transfert recu 90000 FCFA. Ref 000000. Montrez ce message au vendeur pour valider.", "sender": "OrangeMoney", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F06", "text": "Paiement reçu 175000F. Confirmez la livraison au porteur de ce message.", "sender": "Wave", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F07", "text": "Vous avez reçu 250000F. Votre solde est [SOLDE]. Livrez la marchandise svp le client attend", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F08", "text": "Transfert reçu 135000 F. Ref 000. Montrez ce message au vendeur pour valider.", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F09", "text": "ORANGE MONEY: transfert de 200000 FCFA reussi vers votre compte. Veuillez remettre les articles au livreur.", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F10", "text": "Paiement validé: 95000F reçu. Ne pas appeler le client, livraison urgente.", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F11", "text": "Wave: 60000F reçu avec succès. Code de confirmation à donner au livreur: 4471", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F12", "text": "Vous avez recu un transfert de 120000.00 FCFA. Votre nouveau solde est de [SOLDE]. Ref: XX000000", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F13", "text": "Confirmation de paiement: 300000 F crédités. Merci de livrer immédiatement.", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F14", "text": "Vous avez reçu 45000F de [NOM]. Nouveau solde: [SOLDE]. Livrez vite svp.", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "F15", "text": "Transaction reussie. Montant 80000 FCFA. Le paiement sera visible dans 24h, vous pouvez livrer.", "sender": "", "label": "arnaque", "type": "faux_transfert", "origin": "reconstitue"}
+{"id": "D01", "text": "Bonsoir je me suis trompé de numéro en envoyant 30000F, merci de me renvoyer svp", "sender": "[NUMERO]", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D02", "text": "ORANGE MONEY: depot de 50000F effectue par erreur sur votre compte. Merci de renvoyer au [NUMERO] svp sinon blocage", "sender": "[NUMERO]", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D03", "text": "Composez le code d'annulation #144*2*5521# pour annuler le depot de 25000F fait par erreur", "sender": "[NUMERO]", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D04", "text": "Je vous ai envoyé 20000F par mégarde, renvoyez au [NUMERO] svp c'est urgent", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D05", "text": "Salam, c'est l'argent de l'école de mon fils que je vous ai envoyé par erreur, 15000F, renvoyez svp", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D06", "text": "Wave: un dépôt de 40000F a été fait par erreur. Veuillez rembourser au [NUMERO] sous 1h.", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D07", "text": "Service client Orange Money: suite à une erreur, composez #144*391*0000# pour valider le retour des fonds", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D08", "text": "Vous avez reçu 35000F par erreur. Pour éviter la suspension de votre compte, renvoyez la somme.", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D09", "text": "Pardon j'ai fait un mauvais numéro, j'ai envoyé 10000. Renvoie moi stp je suis à l'hôpital", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D10", "text": "Votre compte a été crédité de 50000F par erreur. Tapez le code 1234 pour annuler l'opération.", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D11", "text": "Envoyé par erreur 25000F. Merci de me rembourser 24000F, gardez 1000F pour vous.", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D12", "text": "Depot de 60000F recu. Ce depot est une erreur, composez le #144*4*6# pour le retourner.", "sender": "OrangeMoney", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D13", "text": "Vous avez reçu 18000F. Erreur de destinataire: renvoyez immédiatement au [NUMERO].", "sender": "Wave", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D14", "text": "Bonjour, l'argent que vous avez reçu ne vous est pas destiné. Renvoyez-le au [NUMERO] svp", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
+{"id": "D15", "text": "Remboursez les 45000F reçus ce matin, c'était une erreur de ma part, merci", "sender": "", "label": "arnaque", "type": "depot_erreur", "origin": "reconstitue"}
